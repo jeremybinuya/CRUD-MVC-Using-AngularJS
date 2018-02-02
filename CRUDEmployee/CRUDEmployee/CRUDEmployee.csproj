@@ -184,6 +184,8 @@
     <Content Include="Templates\Employees\employeeedit.html" />
     <Content Include="Templates\Employees\employeelist.html" />
     <Content Include="Templates\Employees\employeeApp.js" />
+    <Content Include="Templates\Events\eventApp.js" />
+    <Content Include="Templates\Events\eventlist.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />

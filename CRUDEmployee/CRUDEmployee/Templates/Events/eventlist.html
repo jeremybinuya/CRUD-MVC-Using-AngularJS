@@ -1,0 +1,22 @@
+﻿<div ng-controller="eventsController">
+
+    <table class="table table-hover">
+        <tr>
+            <td>Id</td>
+            <td>Event Name</td>
+            <td>Event Date</td>
+            <td>Options</td>
+        </tr>
+        <tr dir-paginate="evt in Events | itemsPerPage:empsPerPage" current-page="currentPage">
+            <td>{{evt.EvtId}}</td>
+            <td>{{evt.FullName}}</td>
+            <td>{{evt.JobPostion}}</td>
+            <td><a href="#/Events/Details/{{evt.Id}}"> Details </a>| <a ng-click="DeleteEventById(evt.EvtId)" href="#/Events"> Delete </a></td>
+        </tr>
+    </table>
+    <dir-pagination-controls max-size="3" on-page-change="ClearAll()"
+                             direction-links="true"
+                             boundary-links="true">
+
+    </dir-pagination-controls>
+</div>
