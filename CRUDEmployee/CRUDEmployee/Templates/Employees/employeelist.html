@@ -1,0 +1,27 @@
+﻿<div ng-controller="employessController">
+   
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <a href="#/Employees/Create" class="btn btn-info" role="button">Create Employee</a> | <input type="button" class="btn btn-info" value="Multi Delete Employee" ng-click="MultiDelete(empsPerPage,currentPage)" />
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" ng-model="ckbAll" ng-click="SelectAll(empsPerPage,currentPage)" /> Id</td>
+            <td>Employee Name</td>
+            <td>Job Position</td>
+            <td>Options</td>
+        </tr>
+        <tr dir-paginate="emp in Emps | itemsPerPage:empsPerPage" current-page="currentPage">
+            <td><input type="checkbox" ng-model="emp.ckbOne" ng-click="SelectOne(empsPerPage,currentPage)" />{{emp.EmpId}}</td>
+            <td>{{emp.FullName}}</td>
+            <td>{{emp.JobPostion}}</td>
+            <td><a href="#/Employees/Details/{{emp.EmpId}}"> Details </a>| <a ng-click="DeleteByEmpId(emp.EmpId)" href="#/Employees"> Delete </a></td>
+         </tr>
+    </table>
+    <dir-pagination-controls max-size="3" on-page-change="ClearAll()"
+                             direction-links="true"
+                             boundary-links="true">
+
+    </dir-pagination-controls>
+</div>

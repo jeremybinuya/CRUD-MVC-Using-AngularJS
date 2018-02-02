@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EmployeeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JobPostion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Events">
+          <Key>
+            <PropertyRef Name="EvtId" />
+          </Key>
+          <Property Name="EvtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EvtName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EvtDate" Type="datetime" Nullable="false" />
+          <Property Name="EmpId" Type="int" />
+        </EntityType>
+        <Association Name="FK__tbl_Event__EmpId__1273C1CD">
+          <End Role="tbl_Employee" Type="Self.tbl_Employee" Multiplicity="0..1" />
+          <End Role="tbl_Events" Type="Self.tbl_Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Employee">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="tbl_Events">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeDBModelStoreContainer">
+          <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Events" EntityType="Self.tbl_Events" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tbl_Event__EmpId__1273C1CD" Association="Self.FK__tbl_Event__EmpId__1273C1CD">
+            <End Role="tbl_Employee" EntitySet="tbl_Employee" />
+            <End Role="tbl_Events" EntitySet="tbl_Events" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmployeeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobPostion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbl_Events" Relationship="Self.FK__tbl_Event__EmpId__1273C1CD" FromRole="tbl_Employee" ToRole="tbl_Events" />
+        </EntityType>
+        <EntityType Name="tbl_Events">
+          <Key>
+            <PropertyRef Name="EvtId" />
+          </Key>
+          <Property Name="EvtId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EvtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EvtDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmpId" Type="Int32" />
+          <NavigationProperty Name="tbl_Employee" Relationship="Self.FK__tbl_Event__EmpId__1273C1CD" FromRole="tbl_Events" ToRole="tbl_Employee" />
+        </EntityType>
+        <Association Name="FK__tbl_Event__EmpId__1273C1CD">
+          <End Role="tbl_Employee" Type="Self.tbl_Employee" Multiplicity="0..1" />
+          <End Role="tbl_Events" Type="Self.tbl_Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Employee">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="tbl_Events">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmployeeDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" />
+          <EntitySet Name="tbl_Events" EntityType="Self.tbl_Events" />
+          <AssociationSet Name="FK__tbl_Event__EmpId__1273C1CD" Association="Self.FK__tbl_Event__EmpId__1273C1CD">
+            <End Role="tbl_Employee" EntitySet="tbl_Employee" />
+            <End Role="tbl_Events" EntitySet="tbl_Events" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmployeeDBModelStoreContainer" CdmEntityContainer="EmployeeDBEntities">
+          <EntitySetMapping Name="tbl_Employee">
+            <EntityTypeMapping TypeName="EmployeeDBModel.tbl_Employee">
+              <MappingFragment StoreEntitySet="tbl_Employee">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="JobPostion" ColumnName="JobPostion" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Events">
+            <EntityTypeMapping TypeName="EmployeeDBModel.tbl_Events">
+              <MappingFragment StoreEntitySet="tbl_Events">
+                <ScalarProperty Name="EvtId" ColumnName="EvtId" />
+                <ScalarProperty Name="EvtName" ColumnName="EvtName" />
+                <ScalarProperty Name="EvtDate" ColumnName="EvtDate" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

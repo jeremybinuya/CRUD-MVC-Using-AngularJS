@@ -1,0 +1,22 @@
+﻿<h1>Employee Details</h1>
+<div class="form-horizontal" ng-controller="employessController">
+    <h4>Employee Details</h4>
+    <hr />
+    {{Msg}}
+    <div class="form-horizontal">
+        <div class="form-group col-lg-12">
+            Employee Full Name: {{Emp.FullName}}
+        </div>
+        <div class="form-group col-lg-12">
+            Job Position: {{Emp.JobPostion}}
+        </div>
+        <div class="form-group col-lg-12">
+            Address: {{Emp.Address}}
+        </div>
+        <div class="form-group col-lg-12">
+            Username: {{Emp.Username}}
+        </div>
+        <a href="#/Employees/Edit/{{Emp.EmpId}}" class="btn btn-info" role="button">Edit</a>
+        <a href="#/Employees">Back to Employee List</a>
+    </div>
+</div>

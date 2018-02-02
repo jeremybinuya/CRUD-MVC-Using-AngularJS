@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="JobPostion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Events">
+    <Key>
+      <PropertyRef Name="EvtId" />
+    </Key>
+    <Property Name="EvtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EvtName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EvtDate" Type="datetime" Nullable="false" />
+    <Property Name="EmpId" Type="int" />
+  </EntityType>
+  <Association Name="FK__tbl_Event__EmpId__1273C1CD">
+    <End Role="tbl_Employee" Type="Self.tbl_Employee" Multiplicity="0..1" />
+    <End Role="tbl_Events" Type="Self.tbl_Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Employee">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="tbl_Events">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeDBModelStoreContainer">
+    <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Events" EntityType="Self.tbl_Events" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_Event__EmpId__1273C1CD" Association="Self.FK__tbl_Event__EmpId__1273C1CD">
+      <End Role="tbl_Employee" EntitySet="tbl_Employee" />
+      <End Role="tbl_Events" EntitySet="tbl_Events" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

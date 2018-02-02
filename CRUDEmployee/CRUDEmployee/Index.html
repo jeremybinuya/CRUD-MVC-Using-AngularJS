@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Employee CRUD</title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet" />
+    <script src="Scripts/dirPagination.js"></script>
+    <script src="routes.js"></script>
+    <script src="myapp.js"></script>
+
+    <!--Controls and Services-->
+    <script src="Templates/Employees/employeeApp.js"></script>
+
+</head>
+<body>
+    <ul>
+        <li><a href="#/Employees">Employee</a></li>
+        <li><a href="#/Events">Create Event</a></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ng-view></ng-view>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

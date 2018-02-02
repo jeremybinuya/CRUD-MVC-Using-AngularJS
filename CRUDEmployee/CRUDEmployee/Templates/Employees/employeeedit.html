@@ -1,0 +1,26 @@
+﻿<div class="form-horizontal" ng-controller="employessController">
+    <h4>Create Employee</h4>
+    <hr />
+    {{Msg}}
+    <div class="form-horizontal">
+        <!--<div class="form-group col-lg-12">
+            Employee Id: <input type="text" class="col-3" value=" " ng-model="Emp.EmpId" />
+        </div>-->
+        <div class="form-group col-lg-12">
+            Employee Full Name: <input type="text" class="col-3" value=" " ng-model="Emp.FullName" />
+        </div>
+        <div class="form-group col-lg-12">
+            Job Position:<input type="text" style="margin-left:64px" class="col-3" value=" " ng-model="Emp.JobPostion" />
+        </div>
+        <div class="form-group col-lg-12">
+            Address:<input type="text" style="margin-left:93px" class="col-3" value=" " ng-model="Emp.Address" />
+        </div>
+        <div class="form-group col-lg-12">
+            Username:<input type="text" style="margin-left:78px" class="col-3" value=" " ng-model="Emp.Username" />
+        </div>
+        <div class="form-group col-lg-12">
+            Password:<input type="password" style="margin-left:83px" class="col-3" value=" " ng-model="Emp.Password" />
+        </div>
+        <input type="button" class="btn btn-info" style="margin-left:40px" ng-click="UpdateEmployee(Emp)" value="Update">
+    </div>
+</div>
