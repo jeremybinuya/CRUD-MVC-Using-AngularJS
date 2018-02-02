@@ -6,14 +6,31 @@ app.factory('crudServiceEvents', function ($http, $routeParams) {
     //Get all the Events List
     crudEventObj.getAllEvents = function () {
         var Events;
+        var Emps;
 
         Events = $http({
             method: 'GET',
             url: '/Events/Index'
-        }).then(function (res) {
-            return res.data;
+        }).then(function (response) {
+            return response.data;
         });
+        
         return Events;
+
+        Emps = $http({ method: 'Get', url: '/Employees/Index'}).then(function (response) {
+            return response.data;
+        });
+        return Emps;
+    }
+
+    //Get all the Employee list
+    crudEventObj.getAll = function () {
+        var Emps;
+
+        Emps = $http({ method: 'Get', url: '/Employees/Index' }).then(function (response) {
+            return response.data;
+        });
+        return Emps;
     }
 
     //Get Event By Id
@@ -74,9 +91,19 @@ app.factory('crudServiceEvents', function ($http, $routeParams) {
 
 app.controller('eventsController', function ($scope, crudServiceEvents) {
 
+    //Controller Pages
+    $scope.currentPage = 1;
+    $scope.empsPerPage = 5;
+
+
     //Controller for Get all List of Events
     crudServiceEvents.getAllEvents().then(function (result) {
         $scope.Events = result;
+    });
+
+    //Controller for Get all List of Employee
+    crudServiceEvents.getAll().then(function (result) {
+        $scope.Emps = result;
     });
 
     //Controller Get by ID
