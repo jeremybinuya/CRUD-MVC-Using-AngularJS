@@ -8,7 +8,7 @@ app.factory('crudServiceEmployess', function ($http, $routeParams) {
     crudEmpObj.getAll = function () {
         var Emps;
 
-        Emps = $http({ method: 'Get', url: '/Employees/Index' }).then(function (response) {
+        Emps = $http({ method: 'Get', url: '/Employees/Index'}).then(function (response) {
             return response.data;
         });
         return Emps;
