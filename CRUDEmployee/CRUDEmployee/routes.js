@@ -25,10 +25,10 @@ myApp.config(["$routeProvider", "$locationProvider", function ($routeProvider, $
          })
 
         //Full Events Route
-        //.when('/Events', {
-        //    templateUrl: 'Templates/Events/event.html',
-        //    controller: 'eventController'
-        //})
+        .when('/Events', {
+            templateUrl: 'Templates/Events/eventlist.html',
+            controller: 'eventsController'
+        })
 
         //.when('/Login', {
         //    templateUrl: 'Templates/Login/login.html',
