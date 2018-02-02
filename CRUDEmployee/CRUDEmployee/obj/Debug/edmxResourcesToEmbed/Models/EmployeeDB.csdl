@@ -10,7 +10,6 @@
     <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="tbl_Events" Relationship="Self.FK__tbl_Event__EmpId__1273C1CD" FromRole="tbl_Employee" ToRole="tbl_Events" />
   </EntityType>
   <EntityType Name="tbl_Events">
     <Key>
@@ -20,26 +19,9 @@
     <Property Name="EvtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="EvtDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="EmpId" Type="Int32" />
-    <NavigationProperty Name="tbl_Employee" Relationship="Self.FK__tbl_Event__EmpId__1273C1CD" FromRole="tbl_Events" ToRole="tbl_Employee" />
   </EntityType>
-  <Association Name="FK__tbl_Event__EmpId__1273C1CD">
-    <End Role="tbl_Employee" Type="Self.tbl_Employee" Multiplicity="0..1" />
-    <End Role="tbl_Events" Type="Self.tbl_Events" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_Employee">
-        <PropertyRef Name="EmpId" />
-      </Principal>
-      <Dependent Role="tbl_Events">
-        <PropertyRef Name="EmpId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="EmployeeDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" />
     <EntitySet Name="tbl_Events" EntityType="Self.tbl_Events" />
-    <AssociationSet Name="FK__tbl_Event__EmpId__1273C1CD" Association="Self.FK__tbl_Event__EmpId__1273C1CD">
-      <End Role="tbl_Employee" EntitySet="tbl_Employee" />
-      <End Role="tbl_Events" EntitySet="tbl_Events" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -18,7 +18,5 @@ namespace CRUDEmployee.Models
         public string EvtName { get; set; }
         public System.DateTime EvtDate { get; set; }
         public Nullable<int> EmpId { get; set; }
-    
-        public virtual tbl_Employee tbl_Employee { get; set; }
     }
 }

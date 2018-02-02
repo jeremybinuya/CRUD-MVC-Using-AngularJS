@@ -20,24 +20,8 @@
     <Property Name="EvtDate" Type="datetime" Nullable="false" />
     <Property Name="EmpId" Type="int" />
   </EntityType>
-  <Association Name="FK__tbl_Event__EmpId__1273C1CD">
-    <End Role="tbl_Employee" Type="Self.tbl_Employee" Multiplicity="0..1" />
-    <End Role="tbl_Events" Type="Self.tbl_Events" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbl_Employee">
-        <PropertyRef Name="EmpId" />
-      </Principal>
-      <Dependent Role="tbl_Events">
-        <PropertyRef Name="EmpId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="EmployeeDBModelStoreContainer">
     <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Events" EntityType="Self.tbl_Events" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__tbl_Event__EmpId__1273C1CD" Association="Self.FK__tbl_Event__EmpId__1273C1CD">
-      <End Role="tbl_Employee" EntitySet="tbl_Employee" />
-      <End Role="tbl_Events" EntitySet="tbl_Events" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

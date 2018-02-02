@@ -14,20 +14,11 @@ namespace CRUDEmployee.Models
     
     public partial class tbl_Employee
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_Employee()
-        {
-            this.tbl_Events = new HashSet<tbl_Events>();
-        }
-    
         public int EmpId { get; set; }
         public string FullName { get; set; }
         public string JobPostion { get; set; }
         public string Address { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Events> tbl_Events { get; set; }
     }
 }

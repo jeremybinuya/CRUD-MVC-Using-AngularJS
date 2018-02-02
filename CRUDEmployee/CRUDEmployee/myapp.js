@@ -1,1 +1,1 @@
-﻿var app = angular.module('myApp', ['angularUtils.directives.dirPagination', 'appRoute', 'employeeController']);
+﻿var app = angular.module('myApp', ['angularUtils.directives.dirPagination', 'appRoute', 'employeeController', 'eventController']);
